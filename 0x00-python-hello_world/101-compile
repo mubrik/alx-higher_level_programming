@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "Compiling $PYFILE ..."
-python3 -m py_compile "$PYFILE" > "${PYFILE}c"
+python3 -c "import py_compile; py_compile.compile('${PYFILE}', cfile='${PYFILE}c')"
