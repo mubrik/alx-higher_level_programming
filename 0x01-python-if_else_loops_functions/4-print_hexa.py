@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 
 for i in range(0, 99):
-    print(f"{i} = {i:#0x}")
+    print("{0} = {0:#0x}".format(i))
