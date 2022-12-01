@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import sys
-from test import add, mul, sub, div
+from calculator_1 import add, mul, sub, div
 
 
 def args_is_valid():
@@ -35,7 +35,7 @@ def get_operator(str):
 def main():
     """ logic goes here"""
     if not args_is_valid():
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        print("Usage: {} <a> <operator> <b>".format(sys.argv[0]))
         sys.exit(1)
 
     op = sys.argv[2]
@@ -46,7 +46,7 @@ def main():
     calculate = get_operator(op)
     a = sys.argv[1]
     b = sys.argv[3]
-    print("{} {} {} = {:d}".format(a, op, b, calculate(int(a), int(b))))
+    print("{} {} {} = {}".format(a, op, b, calculate(int(a), int(b))))
 
 
 if __name__ == "__main__":
