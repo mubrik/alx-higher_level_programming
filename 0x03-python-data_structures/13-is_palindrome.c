@@ -9,7 +9,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *tmp;
-	int list_s = 0, i = 0, *num_list;
+	int list_s = 0, list_half = 0, i = 0, *num_list;
 
 	if (!head)
 		return (1);
@@ -17,18 +17,26 @@ int is_palindrome(listint_t **head)
 	/* get list size to create */
 	while (tmp)
 		tmp = tmp->next, list_s++;
-	/* creat list */
-	num_list = malloc(sizeof(int) * list_s);
+	/* efficiency addition, check length */
+	if (list_s % 2 != 0)
+		return (0);
+	list_half = list_s / 2;
+	/* creat list, only half sizzed for space efficiency */
+	num_list = malloc(sizeof(int) * list_half);
 	if (!num_list)
 		return (0);
 	/* start */
 	tmp = *head;
-	/* fill up list */
-	for (; tmp; i++)
-		num_list[i] = tmp->n, tmp = tmp->next;
+	/* fill up mallocd list from middway of linked list */
+	for (i = 0; tmp; i++)
+	{
+		if (i > (list_half - 1))
+			num_list[i - list_half] = tmp->n;
+		tmp = tmp->next;
+	}
 	/* start comparison from end of list and start of linked l */
 	tmp = *head;
-	for (i = list_s - 1; tmp; i--)
+	for (i = list_half - 1; i > 0; i--)
 	{
 		if (tmp->n != num_list[i])
 			return (0);
