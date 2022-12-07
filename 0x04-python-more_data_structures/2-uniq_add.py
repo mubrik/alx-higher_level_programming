@@ -4,7 +4,7 @@
 def uniq_add(my_list: list = []):
     """ add unique items in list """
     if not my_list:
-        return my_list
+        return 0
     # use set for unique
     uniq = set(my_list)
     total = 0
