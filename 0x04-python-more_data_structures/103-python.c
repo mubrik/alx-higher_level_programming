@@ -1,6 +1,5 @@
 #define PY_SSIZE_T_CLEAN
-#include <python3.10/Python.h>
-#include <stdio.h>
+#include "Python.h"
 
 /**
  * print_python_bytes - prints info about a python strin
