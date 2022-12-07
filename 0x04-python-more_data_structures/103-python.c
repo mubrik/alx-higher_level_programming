@@ -27,7 +27,7 @@ void print_python_bytes(PyObject *p)
 	printf("  first %ld bytes: ", iter);
 	for (i = 0; i < iter; i++)
 	{
-		printf("%02x", str[i]);
+		printf("%02x", str[i] & 0xff);
 		if (i != iter - 1)
 			printf(" ");
 	}
