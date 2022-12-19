@@ -66,7 +66,6 @@ void print_python_bytes(PyObject *p)
 	}
 	/* cast to char * */
 	str = (char *) buf_view.buf;
-	/* PyBytes_AsStringAndSize(p, &str, &by_s); */
 	/* printer */
 	printf("  size: %ld\n", by_s);
 	printf("  trying string: %s\n", str);
