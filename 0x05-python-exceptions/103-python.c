@@ -1,5 +1,5 @@
-#define PY_SSIZE_T_CLEAN
 #include "Python.h"
+#include <stdio.h>
 
 /**
  * is_type - checks Pyobject type
@@ -21,7 +21,7 @@ int is_type(PyObject *p, char *str)
  * @p: a python object
  * Return: void.
  */
-void print_python_float(__attribute__((__unused__)) PyObject *p)
+void print_python_float(PyObject *p)
 {
 	PyFloatObject *fl;
 	/* check */
