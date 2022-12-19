@@ -10,8 +10,6 @@ def list_division(my_list_1, my_list_2, list_length):
     for index in range(list_length):
         try:
             a, b = my_list_1[index], my_list_2[index]
-            if not isinstance(a, int) or not isinstance(b, int):
-                raise TypeError
             result = a / b
         except (TypeError, IndexError, ZeroDivisionError, Exception) as ex:
             ty = type(ex)
