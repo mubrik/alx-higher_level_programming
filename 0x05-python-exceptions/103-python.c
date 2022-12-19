@@ -1,6 +1,5 @@
 #define PY_SSIZE_T_CLEAN
-#include <python3.4m/Python.h>
-#include <float.h>
+#include "Python.h"
 
 /**
  * is_type - checks Pyobject type
