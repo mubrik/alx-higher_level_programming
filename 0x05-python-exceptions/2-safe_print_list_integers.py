@@ -4,10 +4,10 @@
 def safe_print_list_integers(my_list=[], x=0):
     """Write a function that prints the first x elements of a list and only
         integers."""
+    count = 0
     if not my_list:
         print()
-        return
-    count = 0
+        return count
     for index in range(x):
         if not isinstance(my_list[index], int):
             continue
