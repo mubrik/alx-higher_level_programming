@@ -3,7 +3,7 @@
 
 def list_division(my_list_1, my_list_2, list_length):
     """Write a function that divides element by element 2 lists."""
-    if not my_list_1 or not my_list_2 or not list_length:
+    if not list_length:
         return []
     result = 0
     new_list = [0 for num in range(list_length)]
