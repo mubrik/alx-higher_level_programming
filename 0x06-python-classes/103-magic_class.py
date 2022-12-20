@@ -10,15 +10,14 @@ class MagicClass:
     def __init__(self, radius):
         """ magic method for init """
         self.__radius = 0
-        if type(radius) is int or type(radius) is float:
-            self.__radius = radius
-        else:
+        if type(radius) is not int or type(radius) is not float:
             raise TypeError("radius must be a number")
+        self.__radius = radius
 
     def area(self):
-        """ magic method for area """
+        """ method for area """
         return (self.__radius ** 2) * math.pi
 
     def circumference(self):
-        """ magic method for circ """
+        """ method for circumference """
         return (2 * math.pi) * self.__radius
