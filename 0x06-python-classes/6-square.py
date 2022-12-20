@@ -34,7 +34,7 @@ class Square:
         for _ in range(posb):
             print()  # new line
         for _ in range(self.__size):
-            if posa and not posb:
+            if posa:
                 print(" " * posa, end="")
             print("#" * self.__size)
 
