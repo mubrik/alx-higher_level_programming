@@ -12,7 +12,7 @@ class Square:
         if size < 0:
             raise ValueError("size must be >= 0")
         try:
-            posa, posb = position
+            posa, posb, *_ = position
             if posa < 0 or posb < 0:
                 raise Exception
         except Exception:
@@ -30,7 +30,7 @@ class Square:
         if self.__size == 0:
             print()
         # guaranteed to be safe
-        posa, posb = self.__position
+        posa, posb, *_ = self.__position
         for _ in range(posb):
             print()  # new line
         for _ in range(self.__size):
