@@ -8,6 +8,7 @@ class MagicClass:
     """ Magic class """
 
     def __init__(self, radius):
+        """ magic method for init """
         self.__radius = 0
         if type(radius) is int or type(radius) is float:
             self.__radius = radius
