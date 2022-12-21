@@ -29,6 +29,7 @@ class Square:
         """ print value of  """
         if self.__size == 0:
             print()
+            return
         # guaranteed to be safe
         posa, posb, *_ = self.__position
         for _ in range(posb):
