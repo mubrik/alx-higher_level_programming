@@ -24,6 +24,7 @@ int is_type(PyObject *p, char *str)
 void print_python_float(PyObject *p)
 {
 	PyFloatObject *fl;
+	char *buf = NULL;
 	/* check */
 	fflush(stdout);
 	printf("[.] float object info\n");
@@ -33,7 +34,9 @@ void print_python_float(PyObject *p)
 		return;
 	}
 	fl = (PyFloatObject *) p;
-	printf("  value: %.*f\n", 20, fl->ob_fval);
+	buf = PyOS_double_to_string(fl->ob_fval, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
+	printf("  value: %s\n", buf);
+	PyMem_Free(buf);
 	fflush(stdout);
 }
 
