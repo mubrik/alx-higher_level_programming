@@ -1,0 +1,23 @@
+The ``matrix_mul test`` module
+======================
+
+Import ``matrix_mul``module:
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+[[7, 10], [15, 22]]
+>>> matrix_mul(None, None)
+Traceback (most recent call last):
+...
+TypeError: m_a must be a list
+>>> matrix_mul([1, 1, 1, "str"], [])
+Traceback (most recent call last):
+...
+TypeError: m_a must be a list of lists
+>>> matrix_mul([[1, 2], [3, 4, 5]], [[1, 2, 7], [3, 4]])
+Traceback (most recent call last):
+...
+TypeError: each row of m_a must be of the same size
+>>> matrix_mul([[1, 2], ["string", 4]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+...
+TypeError: m_a should contain only integers or floats

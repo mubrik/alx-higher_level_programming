@@ -1,0 +1,17 @@
+The ``say_my_name test`` module
+======================
+
+Import ``say_my_name`` from the ``3-say_my_name`` module:
+>>> say = __import__('3-say_my_name').say_my_name
+>>> say("Mr")
+My name is Mr 
+>>> say("Mr", "Mubrik")
+My name is Mr Mubrik
+>>> say("Mr", None)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+>>> say(None, "Mubrik")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
