@@ -89,7 +89,7 @@ class Rectangle:
     def square(cls, size=0):
         """ class method for instantiation """
         if not isinstance(size, int):
-            raise TypeError("size must be an integer")
+            size = 0
         if size < 0:
-            raise ValueError("size must be >= 0")
+            size = 0
         return cls(size, size)
