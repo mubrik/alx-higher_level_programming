@@ -7,6 +7,10 @@ Import ``say_my_name`` from the ``3-say_my_name`` module:
 My name is Mr 
 >>> say("Mr", "Mubrik")
 My name is Mr Mubrik
+>>> say()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
 >>> say("Mr", None)
 Traceback (most recent call last):
 ...

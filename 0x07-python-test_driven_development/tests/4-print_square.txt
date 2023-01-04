@@ -3,6 +3,10 @@ The ``print_square test`` module
 
 Import ``print_square`` from the ``4-print_square`` module:
 >>> square = __import__('4-print_square').print_square
+>>> square()
+Traceback (most recent call last):
+...
+TypeError: square() missing 1 required positional argument: 'size'
 >>> square(1)
 #
 >>> square(1.0)
