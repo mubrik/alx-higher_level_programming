@@ -23,4 +23,4 @@ def print_square(size):
         return
     else:
         for i in range(size):
-            print("#" * size, end="" if i == (size - 1) else "\n")
+            print("#" * size)

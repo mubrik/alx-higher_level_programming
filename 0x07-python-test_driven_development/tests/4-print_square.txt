@@ -7,9 +7,12 @@ Import ``print_square`` from the ``4-print_square`` module:
 Traceback (most recent call last):
 ...
 TypeError: print_square() missing 1 required positional argument: 'size'
->>> square(2)
-##
-##
+>>> square(4)
+####
+####
+####
+####
+
 >>> square(1.0)
 Traceback (most recent call last):
 ...
