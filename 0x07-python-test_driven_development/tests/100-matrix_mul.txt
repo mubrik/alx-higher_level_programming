@@ -45,6 +45,10 @@ TypeError: each row of m_a must be of the same size
 Traceback (most recent call last):
 ...
 TypeError: m_a should contain only integers or floats
+>>> matrix_mul([[1, 2], [6, 4]], [[1, "string"], [3, 4]])
+Traceback (most recent call last):
+...
+TypeError: m_b should contain only integers or floats
 >>> matrix_mul([[1, 2], [3, 4]], [[1, 7], [3, 4], [8, 9]])
 Traceback (most recent call last):
 ...
