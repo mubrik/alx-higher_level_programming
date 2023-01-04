@@ -15,7 +15,7 @@ customErr = TypeError(
 )
 
 
-def matrix_divided(matrix, div):
+def matrix_divided(matrix=None, div=None):
     """ Write a function that divides all elements of a matrix.
     >>> matrix_divided([[10, 10, 20], [10, 10, 20]], 2)
     [[5.0, 5.0, 10.0], [5.0, 5.0, 10.0]]
@@ -34,6 +34,8 @@ def matrix_divided(matrix, div):
     first_len = len(matrix[0])
     for row in matrix:
         new_row = [0 for _ in range(first_len)]
+        if not isinstance(row, list):
+            raise customErr
         if len(row) != first_len:
             raise TypeError("Each row of the matrix must have the same size")
         try:
