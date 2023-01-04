@@ -59,7 +59,7 @@ class Rectangle:
             return new_str
         # iterate heiggh/rows first then width/col
         for i in range(self.height):
-            new_str = f"{new_str}{self.print_symbol * self.width}"
+            new_str = f"{new_str}{str(self.print_symbol) * self.width}"
             if i != (self.height - 1):
                 new_str = new_str + "\n"
         return new_str
@@ -70,5 +70,7 @@ class Rectangle:
 
     def __del__(self):
         """ metho called after garbage collection """
-        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+        if Rectangle.number_of_instances == 0:
+            return
+        Rectangle.number_of_instances -= 1
