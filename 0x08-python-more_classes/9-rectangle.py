@@ -59,7 +59,7 @@ class Rectangle:
             return new_str
         # iterate heiggh/rows first then width/col
         for i in range(self.height):
-            new_str = f"{new_str}{self.print_symbol * self.width}"
+            new_str = f"{new_str}{str(self.print_symbol) * self.width}"
             if i != (self.height - 1):
                 new_str = new_str + "\n"
         return new_str
@@ -77,9 +77,9 @@ class Rectangle:
     def bigger_or_equal(rect_1, rect_2):
         """ static methdod, area size """
         if not isinstance(rect_1, Rectangle):
-            raise TypeError("rect1 must be an instance of Rectangle")
+            raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
-            raise TypeError("rect2 must be an instance of Rectangle")
+            raise TypeError("rect_2 must be an instance of Rectangle")
         r1_a, r2_a = rect_1.area(), rect_2.area()
         if r1_a >= r2_a:
             return rect_1
@@ -88,4 +88,8 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """ class method for instantiation """
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")
         return cls(size, size)
