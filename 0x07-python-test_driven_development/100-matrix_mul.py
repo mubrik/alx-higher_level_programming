@@ -33,12 +33,6 @@ def validate_list_or_raise(mat=None, name="m_a"):
 
 def matrix_mul(m_a, m_b):
     """Write a function that multiplies 2 matrices"""
-    # initial checks
-    """ a, b = isinstance(m_a, list), isinstance(m_b, list)
-    if not a or not b:
-        raise TypeError(f"{'m_a' if not a else 'm_b'} must be a list")
-    b_rows_l = len(m_b)
-    a_col_len = len(m_a[0]) """
     # validate
     validate_list_or_raise(m_a)
     validate_list_or_raise(m_b, "m_b")
