@@ -3,12 +3,19 @@ The ``add_integer test`` module
 
 Import ``add_integer`` from the ``example`` module:
 >>> add_integer = __import__('0-add_integer').add_integer
+>>> sys = __import__('sys')
 >>> add_integer(10)
 108
 >>> add_integer(10, 200)
 210
 >>> add_integer(10.8, 21.8)
 31
+>>> add_integer(1, float('nan'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+>>> add_integer(1, sys.float_info.max)
+179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858369
 >>> add_integer()
 Traceback (most recent call last):
 ...
