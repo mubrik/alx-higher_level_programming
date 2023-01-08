@@ -1,5 +1,19 @@
 #!/usr/bin/python3
-matrix_mul = __import__('100-matrix_mul').matrix_mul
+import ctypes
 
-print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
-print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+lib = ctypes.CDLL('./libPython.so')
+lib.print_python_string.argtypes = [ctypes.py_object]
+s = "The spoon does not exist"
+lib.print_python_string(s)
+s = "ложка не существует"
+lib.print_python_string(s)
+s = "La cuillère n'existe pas"
+lib.print_python_string(s)
+s = "勺子不存在"
+lib.print_python_string(s)
+s = "숟가락은 존재하지 않는다."
+lib.print_python_string(s)
+s = "スプーンは存在しない"
+lib.print_python_string(s)
+s = b"The spoon does not exist"
+lib.print_python_string(s)

@@ -1,4 +1,4 @@
-#include "Python.h"
+#include <python3.4m/Python.h>
 #include <stdio.h>
 
 /**
@@ -122,4 +122,31 @@ void print_python_list(PyObject *p)
 			print_python_float(item);
 	}
 	fflush(stdout);
+}
+
+/**
+ * print_python_string - prints info about a python string
+ * @p: a python object
+ * Return: void.
+ */
+void print_python_string(PyObject *p)
+{
+	int i = 0;
+
+	/* check null, check, type */
+	fflush(stdout), printf("[.] string object info\n");
+	if (!p || !PyUnicode_CheckExact(p))
+	{
+		printf("  [ERROR] Invalid String Object\n");
+		return;
+	}
+
+	if (PyUnicode_READY(p) != 0)
+		return;
+	if (PyUnicode_IS_COMPACT_ASCII(p))
+		printf("  type: compact ascii\n");
+	else
+		printf("  type: compact unicode object\n");
+	printf("  length: %ld\n", PyUnicode_GET_LENGTH(p));
+	printf("  value: %s\n", PyUnicode_AsUTF8AndSize(p, NULL));
 }
