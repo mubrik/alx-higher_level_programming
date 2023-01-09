@@ -13,7 +13,7 @@ class BaseGeometry:
         """ validate value """
         if not isinstance(name, str):
             raise TypeError("name must be a string")
-        if type(value) is not int:
+        if type(value) != int:
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
