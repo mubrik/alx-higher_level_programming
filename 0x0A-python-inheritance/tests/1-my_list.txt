@@ -4,6 +4,8 @@ The ``MyList test`` module
 Import ``MyList`` from the ``MyList`` module:
 >>> MyList = __import__('1-my_list').MyList
 >>> ls = MyList()
+>>> ls.print_sorted()
+[]
 >>> ls.append(5)
 >>> ls.append(3)
 >>> ls.append(8)
