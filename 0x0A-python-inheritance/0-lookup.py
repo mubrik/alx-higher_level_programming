@@ -14,4 +14,4 @@ def lookup(obj):
     >>> lookup()
     [...]
     """
-    ls = dir(obj)
+    return dir(obj)
