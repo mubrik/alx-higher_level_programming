@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" BaseGeometry Class """
+""" Rectangle Class """
 
 
 class BaseGeometry:
@@ -17,9 +17,11 @@ class BaseGeometry:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
+        return value
 
 
 class Rectangle(BaseGeometry):
+    """ Rectangle class """
 
     def __init__(self, width, height):
         """ init method """
