@@ -7,5 +7,12 @@ Import ``MyList`` from the ``MyList`` module:
 >>> ls.append(5)
 >>> ls.append(3)
 >>> ls.append(8)
+>>> nls = [5, 3, 8]
+>>> ls.print_sorted()
+[3, 5, 8]
+>>> nls == ls
+True
+>>> print(sorted(nls))
+[3, 5, 8]
 >>> ls.print_sorted()
 [3, 5, 8]
