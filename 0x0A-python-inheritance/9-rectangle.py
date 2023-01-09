@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" BaseGeometry Class """
+""" Rectangle Class """
 
 
 class BaseGeometry:
@@ -21,6 +21,7 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
+    """ Rectangle Class """
 
     def __init__(self, width, height):
         """ init method """
