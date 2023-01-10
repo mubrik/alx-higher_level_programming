@@ -20,3 +20,8 @@ class Student:
             for key in filter(lambda k: k in ret_d.keys(), attrs):
                 n_dict[key] = ret_d[key]
             return n_dict
+
+    def reload_from_json(self, json):
+        for key, value in json.items():
+            if key in vars(self):
+                self[key] = value
