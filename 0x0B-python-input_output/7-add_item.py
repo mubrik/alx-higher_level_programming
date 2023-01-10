@@ -23,7 +23,6 @@ def main():
             return
         # get obj
         arr = load_from_json_file("add_item.json")
-        print(arr)
         for i, arg in enumerate(sys.argv):
             if i == 0:
                 continue
