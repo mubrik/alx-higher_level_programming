@@ -27,9 +27,9 @@ def main():
             ocr[code] += 1
             # print dets
             if l_count % 10 == 0:
-                print_out(tot_size, ocr.items())
+                print_out(tot_size, sorted(ocr.items()))
     except KeyboardInterrupt:
-        print_out(tot_size, ocr.items())
+        print_out(tot_size, sorted(ocr.items()))
         exit(0)
 
 
