@@ -18,3 +18,8 @@ True
 [3, 5, 8]
 >>> ls.print_sorted()
 [3, 5, 8]
+>>> ls.__str__()
+'[5, 3, 8]'
+>>> ls.append(-5)
+>>> ls.print_sorted()
+[-5, 3, 5, 8]
