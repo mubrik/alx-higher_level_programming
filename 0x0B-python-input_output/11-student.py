@@ -24,4 +24,4 @@ class Student:
     def reload_from_json(self, json):
         for key, value in json.items():
             if key in vars(self):
-                self[key] = value
+                setattr(self, key, value)
