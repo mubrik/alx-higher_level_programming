@@ -13,10 +13,12 @@ class Student:
 
     def to_json(self, attrs=None):
         ret_d = vars(self)
-        if attrs is None or not attrs:
+        if attrs is None or not isinstance(attrs, list):
             return ret_d
-        if type(attrs) is list and all(map(lambda x: type(x) is str, attrs)):
-            n_dict = {}
+        n_dict = {}
+        if not attrs:  # empty list?
+            return n_dict
+        if all(map(lambda x: type(x) is str, attrs)):
             for key in filter(lambda k: k in ret_d.keys(), attrs):
                 n_dict[key] = ret_d[key]
             return n_dict
