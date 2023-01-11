@@ -19,10 +19,11 @@ def main():
         "404": 0, "405": 0, "500": 0,
     }
     try:
-        for line in fileinput.input(encoding="utf-8"):
+        for line in fileinput.input():
             # spli line
             line_arr = line.split()
             l_count += 1
+            print(l_count)
             # size is last item, code is second to last
             size, code = line_arr[-1], line_arr[-2]
             tot_size += int(size)
