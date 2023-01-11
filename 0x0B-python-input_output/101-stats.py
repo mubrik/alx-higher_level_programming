@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Working with Files and JSON  """
 import fileinput
+from sys import stdin
 
 
 def print_out(pr_num, pr_arr):
@@ -19,7 +20,7 @@ def main():
         "404": 0, "405": 0, "500": 0,
     }
     try:
-        for line in fileinput.input():
+        for line in stdin:
             # spli line
             line_arr = line.split()
             l_count += 1
