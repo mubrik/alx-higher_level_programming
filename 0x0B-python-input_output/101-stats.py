@@ -7,7 +7,7 @@ def print_out(pr_num, pr_arr):
     print("File size: {}".format(pr_num))
     # filter and sort
     pr_arr = sorted(filter(lambda x: x[1], pr_arr))
-    arr = [f'{item[0]}: {item[1]}' for item in pr_arr]
+    arr = ['{}: {}'.format(item[0], item[1]) for item in pr_arr]
     print("\n".join(arr))
 
 
