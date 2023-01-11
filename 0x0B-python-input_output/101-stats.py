@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Working with Files and JSON  """
-import fileinput
 from sys import stdin
 
 
