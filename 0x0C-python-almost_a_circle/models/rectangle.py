@@ -14,6 +14,11 @@ class Rectangle(Base):
         self.__x = self.validate_pos("x", x)
         self.__y = self.validate_pos("y", y)
 
+    def __str__(self):
+        """ string representation  """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height)
+
     @property
     def width(self):
         """ width getter """
@@ -120,7 +125,12 @@ class Rectangle(Base):
                 elif key in arg_l[3:]:
                     setattr(self, key, self.validate_pos(key, value))
 
-    def __str__(self):
-        """ string representation  """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.x, self.y, self.width, self.height)
+    def to_dictionary(self):
+        """ dict representation """
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y,
+        }

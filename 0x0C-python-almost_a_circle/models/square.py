@@ -13,18 +13,18 @@ class Square(Rectangle):
     def __str__(self):
         """ string representation """
         return "[Square] ({}) {}/{} - {}".format(
-            self.id, self.x, self.y, self.__width)
+            self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
         """ size getter """
-        return self.__width
+        return self.width
 
     @size.setter
     def size(self, value):
         """ size property setter """
-        self.__width = super().validate_len("width", value)
-        self.__height = super().validate_len("height", value)
+        self.width = super().validate_len("width", value)
+        self.height = super().validate_len("height", value)
 
     def update(self, *args, **kwargs):
         """ update the instance """
@@ -44,6 +44,15 @@ class Square(Rectangle):
         if name == arg_l[0] and self.ty_int(name, value):
             self.id = value
         elif name == arg_l[1]:
-            setattr(self, name, self.validate_len(name, value))
+            self.size = value
         elif name in arg_l[2:]:
             setattr(self, name, self.validate_pos(name, value))
+
+    def to_dictionary(self):
+        """ dict representation """
+        return {
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y,
+        }
