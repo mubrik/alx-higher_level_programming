@@ -5,6 +5,7 @@ from models.base import Base
 
 class Rectangle(Base):
     """ the rectangle base """
+    _keys = ["id", "width", "height", "x", "y"]
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """ init method """
@@ -105,25 +106,26 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """ update the instance """
-        arg_l = ["id", "width", "height", "x", "y"]
         if args and isinstance(args, (list, tuple)):
             for i, value in enumerate(args):
-                # validate?
-                name = arg_l[i]
-                if name == arg_l[0] and self.ty_int(name, value):
-                    self.id = value
-                elif name in arg_l[1:3]:
-                    setattr(self, name, self.validate_len(name, value))
-                elif name in arg_l[3:]:
-                    setattr(self, name, self.validate_pos(name, value))
+                # not necessary but save cycle
+                if i >= len(self._keys):
+                    break
+                key = self._keys[i]
+                self._upd_or_raise(key, value)
         elif kwargs:
             for key, value in kwargs.items():
-                if key == arg_l[0] and self.ty_int(arg_l[0], value):
-                    self.id = value
-                elif key in arg_l[1:3]:
-                    setattr(self, key, self.validate_len(key, value))
-                elif key in arg_l[3:]:
-                    setattr(self, key, self.validate_pos(key, value))
+                self._upd_or_raise(key, value)
+
+    def _upd_or_raise(self, key, value):
+        """ helper for update method """
+        # validate, update or raise. raise if name not in keys?
+        if key == self._keys[0] and self.ty_int(key, value):
+            self.id = value
+        elif key in self._keys[1:3]:
+            setattr(self, key, self.validate_len(key, value))
+        elif key in self._keys[3:]:
+            setattr(self, key, self.validate_pos(key, value))
 
     def to_dictionary(self):
         """ dict representation """

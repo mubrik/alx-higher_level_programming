@@ -5,6 +5,7 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     """ the Square base """
+    _keys = ["id", "size", "x", "y"]
 
     def __init__(self, size, x=0, y=0, id=None):
         """ init method """
@@ -28,25 +29,26 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """ update the instance """
-        arg_l = ["id", "size", "x", "y"]
         if args and isinstance(args, (list, tuple)):
             for i, value in enumerate(args):
-                # validate?
-                name = arg_l[i]
-                self.__upd_or_raise(name, value)
+                # not necessary but save cycle
+                if i >= len(self._keys):
+                    break
+                key = self._keys[i]
+                self._upd_or_raise(key, value)
         elif kwargs:
             for key, value in kwargs.items():
-                self.__upd_or_raise(key, value)
+                self._upd_or_raise(key, value)
 
-    def __upd_or_raise(self, name, value):
+    def _upd_or_raise(self, key, value):
         """ helper for update method """
-        arg_l = ["id", "size", "x", "y"]
-        if name == arg_l[0] and self.ty_int(name, value):
+        # validate, update or raise
+        if key == self._keys[0] and self.ty_int(key, value):
             self.id = value
-        elif name == arg_l[1]:
+        elif key == self._keys[1]:
             self.size = value
-        elif name in arg_l[2:]:
-            setattr(self, name, self.validate_pos(name, value))
+        elif key in self._keys[2:]:
+            setattr(self, key, self.validate_pos(key, value))
 
     def to_dictionary(self):
         """ dict representation """
