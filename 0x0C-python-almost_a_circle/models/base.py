@@ -26,6 +26,7 @@ class Base:
             Base.__nb_objects = Base.__nb_objects - 1
 
     def update(self):
+        """ Base class cant do this """
         raise NotImplementedError
 
     @staticmethod
@@ -48,12 +49,14 @@ class Base:
         try:
             res = json.loads(json_string)
             return res
-        except json.JSONDecodeError as e:
+        except Exception as e:
+            # except json.JSONDecodeError as e:
             # re raising so i can test easily later
             raise TypeError("Bad JSON string")
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        """ draw gui """
         display = Display()
         # create a method to check instances later
         if list_rectangles and isinstance(list_rectangles, list):
