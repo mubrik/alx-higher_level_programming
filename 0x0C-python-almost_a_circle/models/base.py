@@ -160,6 +160,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
+        """ load from file csv """
         if cls == Base:
             raise NotImplementedError("Rectangle and Square intances only")
         file_n = "{}.csv".format(cls.__name__)
