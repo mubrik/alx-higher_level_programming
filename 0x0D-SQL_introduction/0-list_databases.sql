@@ -1,1 +1,2 @@
+-- list dbs
 SHOW DATABASES;
