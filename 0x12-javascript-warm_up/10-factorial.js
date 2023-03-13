@@ -1,9 +1,10 @@
 #!/usr/bin/node
 const args = process.argv.slice(2);
 
-function factorial(a) {
-  if (!a || a <= 1)
-  return 1;
+function factorial (a) {
+  if (!a || a <= 1) {
+    return 1;
+  }
 
   return a * factorial(a - 1);
 }
