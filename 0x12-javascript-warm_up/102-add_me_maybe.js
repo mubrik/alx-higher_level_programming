@@ -1,9 +1,13 @@
 #!/usr/bin/node
 
-export function callMeMoby (num, func) {
+export function addMeMaybe (num, func) {
   let index = 0;
   while (index < num) {
     func();
     index++;
   }
 }
+
+module.exports = {
+  addMeMaybe
+};
