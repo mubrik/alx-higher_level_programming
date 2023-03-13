@@ -1,4 +1,4 @@
-#!/home/mubrik/.nvm/versions/node/v19.2.0/bin/node
+#!/usr/bin/node
 const myObject = {
   type: 'object',
   value: 12
