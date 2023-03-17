@@ -1,4 +1,4 @@
-#!/mnt/MB/sharedPartition/py_envs/alx/bin/python
+#!/usr/bin/python3
 """Start link class to table in database
 """
 import sys
