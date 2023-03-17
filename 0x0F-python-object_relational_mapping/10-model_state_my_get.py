@@ -7,6 +7,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (create_engine)
 
 def get_state_id(session, state):
+    ''' gets id of state'''
     if not session:
         return None
     res = None

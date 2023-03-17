@@ -7,6 +7,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (create_engine)
 
 def get_first_state(session):
+    ''' gets first state'''
     if not session:
         return None
     res = [x for x in session.query(State.id, State.name).first()]

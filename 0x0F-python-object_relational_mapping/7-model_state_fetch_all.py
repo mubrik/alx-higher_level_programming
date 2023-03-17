@@ -7,6 +7,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (create_engine)
 
 def get_all_states(session):
+    ''' gets iallstates'''
     if not session:
         return None
     for id, name in session.query(State.id, State.name).order_by(State.id):

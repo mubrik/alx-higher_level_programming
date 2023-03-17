@@ -7,6 +7,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (create_engine)
 
 def get_states_with_a(session):
+    ''' gets state that starts with a'''
     if not session:
         return None
     for id, name in session.query(State.id, State.name).where(State.name.contains('a')):
