@@ -17,7 +17,7 @@ def main():
                              password=password, database=dbname)
         cursor = db.cursor()
         cursor.execute("""SELECT * FROM states
-                       WHERE name='{}'""".format(state))
+                       WHERE name LIKE BINARY '{}'""".format(state))
         for row in cursor.fetchall():
             print(row)
     except MySQLdb.MySQLError as exc:

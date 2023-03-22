@@ -18,7 +18,7 @@ def main():
         cursor = db.cursor()
         cursor.execute(
             """SELECT id, name FROM states
-            WHERE name LIKE 'N%'
+            WHERE name LIKE BINARY 'N%'
             ORDER BY id ASC""")
     except MySQLdb.MySQLError as exc:
         print("DB Error", exc)

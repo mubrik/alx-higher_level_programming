@@ -7,15 +7,17 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (create_engine)
 
 
-def get_first_state(session):
-    ''' gets first state'''
+def change_state_2(session):
+    ''' change details of state '''
     if not session:
         return None
-    res = [x for x in session.query(State.id, State.name).first()]
-    if res:
-        print(f'{res[0]}: {res[1]}')
-    else:
-        print('Nothing')
+    try:
+        state = session.query(State).filter_by(id=2).first()
+        if state:
+            state.name = 'New Mexico'
+            session.commit()
+    except Exception:
+        print('err occured')
 
 
 if __name__ == "__main__":
@@ -27,4 +29,4 @@ if __name__ == "__main__":
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         session = Session()
-        get_first_state(session)
+        change_state_2(session)

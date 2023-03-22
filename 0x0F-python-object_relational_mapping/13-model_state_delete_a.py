@@ -4,18 +4,21 @@
 import sys
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import delete
 from sqlalchemy import (create_engine)
 
 
-def get_first_state(session):
-    ''' gets first state'''
+def change_state_2(session):
+    ''' change details of state '''
     if not session:
         return None
-    res = [x for x in session.query(State.id, State.name).first()]
-    if res:
-        print(f'{res[0]}: {res[1]}')
-    else:
-        print('Nothing')
+    try:
+        states = session.query(State).filter(State.name.like("%a%")).all()
+        for state in states:
+            session.delete(state)
+        session.commit()
+    except Exception:
+        print('err occured')
 
 
 if __name__ == "__main__":
@@ -27,4 +30,4 @@ if __name__ == "__main__":
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         session = Session()
-        get_first_state(session)
+        change_state_2(session)

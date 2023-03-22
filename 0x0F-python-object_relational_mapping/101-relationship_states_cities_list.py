@@ -2,20 +2,23 @@
 """Start link class to table in database
 """
 import sys
-from model_state import Base, State
+from relationship_state import Base, State
+from relationship_city import City
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (create_engine)
 
 
-def get_first_state(session):
-    ''' gets first state'''
+def create_cali(session):
+    ''' change details of state '''
     if not session:
         return None
-    res = [x for x in session.query(State.id, State.name).first()]
-    if res:
-        print(f'{res[0]}: {res[1]}')
-    else:
-        print('Nothing')
+    try:
+        for state in session.query(State).order_by(State.id):
+            print(f'{state.id}: {state.name}')
+            for city in state.cities:
+                print(f'    {city.id}: {city.name}')
+    except Exception as e:
+        print('err occured', e)
 
 
 if __name__ == "__main__":
@@ -27,4 +30,4 @@ if __name__ == "__main__":
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
         session = Session()
-        get_first_state(session)
+        create_cali(session)
