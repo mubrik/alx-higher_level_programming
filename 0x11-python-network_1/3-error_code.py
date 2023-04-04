@@ -9,7 +9,7 @@ def main(url):
     """ main script"""
     try:
         with urllib.request.urlopen(url) as response:
-            print(response.read())
+            print(response.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
         print(f'Error code: {exc.code}')
 
