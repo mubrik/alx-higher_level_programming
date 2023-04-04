@@ -1,21 +1,19 @@
 #!/usr/bin/python3
 """ gets alx status with urllib"""
 import sys
-import urllib
+import urllib.error
 import urllib.request
 
 
-def main(url, email):
+def main(url):
     """ main script"""
-    data = urllib.parse.urlencode({'email': email}).encode('utf-8')
-    req = urllib.request.Request(url, data=data, method='POST')
-
-    with urllib.request.urlopen(req) as response:
-        body = response.read().decode('utf-8')
-        print(body)
+    try:
+        with urllib.request.urlopen(url) as response:
+            print(response.read())
+    except urllib.error.HTTPError as exc:
+        print(f'Error code: {exc.code}')
 
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
-        url, email = sys.argv
-        main(url, email)
+        main(sys.argv[1])

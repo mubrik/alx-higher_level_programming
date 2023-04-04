@@ -1,21 +1,15 @@
 #!/usr/bin/python3
-""" gets alx status with urllib"""
-import sys
-import urllib
-import urllib.request
+""" gets alx status with requests"""
+import requests
 
 
-def main(url, email):
+def main(url):
     """ main script"""
-    data = urllib.parse.urlencode({'email': email}).encode('utf-8')
-    req = urllib.request.Request(url, data=data, method='POST')
-
-    with urllib.request.urlopen(req) as response:
-        body = response.read().decode('utf-8')
-        print(body)
+    response = requests.get(url)
+    print("Body response:")
+    print("\t- type: {}".format(type(response.text)))
+    print("\t- content: {}".format(response.text))
 
 
-if __name__ == '__main__':
-    if len(sys.argv) == 2:
-        url, email = sys.argv
-        main(url, email)
+if __name__ == "__main__":
+    main("https://alx-intranet.hbtn.io/status")
