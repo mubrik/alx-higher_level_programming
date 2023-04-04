@@ -9,7 +9,7 @@ def main(url, email):
     """ main script"""
     req = urllib.request.Request(
         url,
-        data=urllib.parse.urlencode({'email': email}),
+        data=urllib.parse.urlencode({'email': email}).encode('ascii'),
         method='POST')
 
     with urllib.request.urlopen(req) as response:
