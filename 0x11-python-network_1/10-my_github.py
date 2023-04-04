@@ -16,7 +16,7 @@ def main(username, password):
         json_response = response.json()
         print(json_response["id"])
     else:
-        print("Error:", response.status_code)
+        print("None")
 
 
 if __name__ == "__main__":
