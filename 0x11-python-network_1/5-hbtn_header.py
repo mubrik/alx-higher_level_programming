@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ gets alx status with requests"""
+import sys
 import requests
 
 
@@ -10,4 +11,5 @@ def main(url):
 
 
 if __name__ == "__main__":
-    main("https://alx-intranet.hbtn.io/status")
+    if len(sys.argv) == 2:
+        main(sys.argv[1])
