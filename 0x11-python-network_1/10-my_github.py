@@ -1,21 +1,25 @@
 #!/usr/bin/python3
 """ gets alx status with urllib"""
 import sys
-import urllib
-import urllib.request
+import requests
 
 
-def main(url, email):
+def main(username, password):
     """ main script"""
-    data = urllib.parse.urlencode({'email': email}).encode('utf-8')
-    req = urllib.request.Request(url, data=data, method='POST')
+    endpoint = "https://api.github.com/user"
+    headers = {"Accept": "application/vnd.github.v3+json"}
+    auth = (username, password)
 
-    with urllib.request.urlopen(req) as response:
-        body = response.read().decode('utf-8')
-        print(body)
+    response = requests.get(endpoint, headers=headers, auth=auth)
+
+    if response.status_code == 200:
+        json_response = response.json()
+        print(json_response["id"])
+    else:
+        print("Error:", response.status_code)
 
 
-if __name__ == '__main__':
-    if len(sys.argv) == 2:
-        url, email = sys.argv
-        main(url, email)
+if __name__ == "__main__":
+    if len(sys.argv) == 3:
+        _, username, password = sys.argv
+        main(username, password)

@@ -1,21 +1,25 @@
 #!/usr/bin/python3
 """ gets alx status with urllib"""
 import sys
-import urllib
-import urllib.request
+import requests
 
 
-def main(url, email):
+def main(letter):
     """ main script"""
-    data = urllib.parse.urlencode({'email': email}).encode('utf-8')
-    req = urllib.request.Request(url, data=data, method='POST')
+    response = requests.post(
+        "http://0.0.0.0:5000/search_user", data={"q": letter})
+    try:
+        json = response.json()
+        if json:
+            print(f"[{json.get('id')}] {json.get('name')}")
+        else:
+            print("No result")
+    except ValueError:
+        print("Not a valid JSON")
 
-    with urllib.request.urlopen(req) as response:
-        body = response.read().decode('utf-8')
-        print(body)
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     if len(sys.argv) == 2:
-        url, email = sys.argv
-        main(url, email)
+        main(sys.argv[1])
+    else:
+        main("")

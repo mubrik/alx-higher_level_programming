@@ -7,11 +7,11 @@ import requests.exceptions
 
 def main(url):
     """ main script"""
-    try:
-        response = requests.get(url)
+    response = requests.get(url)
+    if response.status_code >= 400:
+        print(f'Error code: {response.status_code}')
+    else:
         print(response.text)
-    except requests.exceptions.HTTPError as exc:
-        print(f'Error code: {exc.errno}')
 
 
 if __name__ == "__main__":
