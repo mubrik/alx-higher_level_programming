@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """ gets alx status with urllib"""
 import sys
-import urllib
+import urllib.parse
 import urllib.request
 
 
 def main(url, email):
     """ main script"""
-    data = urllib.parse.urlencode({'email': email}).encode('utf-8')
-    req = urllib.request.Request(url, data=data, method='POST')
+    req = urllib.request.Request(
+        url, data=urllib.parse.urlencode({'email': email}), method='POST')
 
     with urllib.request.urlopen(req) as response:
         body = response.read().decode('utf-8')
