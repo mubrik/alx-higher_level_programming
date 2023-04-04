@@ -1,4 +1,9 @@
+#!/usr/bin/python3
+""" function that find peak in aray by chatgpt lol """
+
+
 def find_peak(list_of_integers):
+    """ implementation """
     # Check if the list is empty
     if not list_of_integers:
         return None
