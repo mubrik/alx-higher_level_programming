@@ -8,7 +8,9 @@ import urllib.request
 def main(url, email):
     """ main script"""
     req = urllib.request.Request(
-        url, data=urllib.parse.urlencode({'email': email}), method='POST')
+        url,
+        data=urllib.parse.urlencode({'email': email}),
+        method='POST')
 
     with urllib.request.urlopen(req) as response:
         body = response.read().decode('utf-8')
@@ -16,6 +18,6 @@ def main(url, email):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2:
-        url, email = sys.argv
+    if len(sys.argv) == 3:
+        _, url, email = sys.argv
         main(url, email)
