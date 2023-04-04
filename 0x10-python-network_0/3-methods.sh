@@ -1,3 +1,3 @@
 #!/bin/bash
-# check body of 200 req
+# methods
 curl -sI "$1" | grep "Allow:" | cut -d" " -f 2-
